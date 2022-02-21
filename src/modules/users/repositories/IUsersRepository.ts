@@ -3,10 +3,13 @@ import { User } from "../model/User";
 interface ICreateUserDTO {
   name: string;
   email: string;
+  admin?: boolean;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 interface IUsersRepository {
-  create({ name, email }: ICreateUserDTO): User;
+  create({ name, email, admin,  created_at, updated_at }: ICreateUserDTO): User;
   findById(id: string): User | undefined;
   findByEmail(email: string): User | undefined;
   turnAdmin(user: User): User;
