@@ -4,9 +4,9 @@ import { IUsersRepository } from "../../repositories/IUsersRepository";
 interface IRequest {
   name: string,
   email: string,
-  admin?: boolean,
-  created_at?: Date,
-  updated_at?: Date
+  admin: boolean,
+  created_at: Date,
+  updated_at: Date
 }
 
 class CreateUserUseCase {

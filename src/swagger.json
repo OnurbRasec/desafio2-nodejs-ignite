@@ -1,0 +1,185 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title": "API documentation",
+        "description": "This is an API user registration listing",
+        "versoin": "1.0.0",
+        "contact": {
+            "email":"bruno.c.s.s@hotmail.com"  
+    }
+    },
+    "paths":{
+        "/Users":{
+            "post":{
+                "tags": ["Users"],
+                "summary": "Create a User",
+                "description":"Create a new user",
+                "requestBody":{
+                    "content":{
+                        "aplication/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "email":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "name":"Bruno cesar",
+                                    "email": "bruno.c.s.s@hotmail.com"                           
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description":"Created",
+                        "content":{
+                        "aplication/json":{
+                            "schema":{
+                                "type":"object",
+                                "example":{
+                                    "id":"string/uuid",
+                                    "name": "Bruno Cesar",
+                                    "email": "bruno.c.s.s@hotmail.com",
+                                    "admin": "false",
+                                    "created_at": "2022-03-04T15:51:18.987Z",
+                                    "updated_at": "2022-03-04T15:51:18.987Z"
+                                }                   
+                            }}}},
+                    "400":{
+                        "description": "User already exists!"
+        
+            }
+        }
+    },          
+            "get":{
+                    
+                    "tags":["Users"],
+                    "summary":"List all user",
+                    "description":"List all user",
+                    "responses":{
+                        "200":{
+                            "description":"Success",
+                        "content":{
+                            "aplication/json":{
+                                "schema":{
+                                        "items":{
+                                     "type":"array",
+                                    
+                                    "example":[{
+                                    "id":"string/uuid",
+                                    "name": "Bruno Cesar",
+                                    "email": "bruno.c.s.s@hotmail.com",
+                                    "admin": "true",
+                                    "created_at": "2022-03-04T15:51:18.987Z",
+                                    "updated_at": "2022-03-04T15:51:18.987Z"
+                                    },
+                                    {
+                                    "id":"string/uuid",
+                                    "name": "Cesar Bruno",
+                                    "email": "documentation-Api@hotmail.com",
+                                    "admin": "false",
+                                    "created_at": "2022-03-04T15:51:18.987Z",
+                                    "updated_at": "2022-03-04T15:51:18.987Z"
+                                        
+                                       }]
+                                    }
+                                
+                                    
+                                         
+                                        }
+                                        }
+                                        }
+                                    
+                        }
+        
+    
+            
+         }
+         }
+        },
+         "Users/{user_id}":{
+         "get":{
+            "tags":["Users"],
+            "summary":"Show user profile",
+            "description":"Show user profile",
+            "responses":{
+                "200":{
+                    "description":"Success",
+                "content":{
+                    "aplication/json":{
+                        "schema":{
+                             "items":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "email":{
+                                        "type":"string"
+                                    },
+                                    "id":{
+                                        "type":"string"
+                                },
+                                "admin":{
+                                "type":"boolean"
+                            },
+                            "created_at":{
+                                "type":"date"
+                            },
+                            "update_at":{
+                                "type":"date"
+                        }
+                   }
+            }
+        }
+    }
+        }
+        }
+        }
+    }
+         },
+         "/Users/{user_id}/admin":{
+            "patch":{
+                "tags":["Users"],
+                "summary":"Turn user admin",
+                "description":"Turn user administrator",
+                "requestbody":{
+                    "content":{
+                        "aplication/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                        "admin":{
+                                            "type":"boolean"
+                                        
+                                    }
+                                },
+                                "example":{
+                                "admin":"true"
+                                }
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User turned admin"
+                    },
+                    "404":{
+                        "description":"User already admin or User doesn't exists!"
+                    }
+                }
+            }
+         }
+         
+    }
+ }
+    
+
